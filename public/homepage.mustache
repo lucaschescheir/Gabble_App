@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Welcome to Gabble  {{ #username }}
+    {{ firstName }}!!
+    {{ /username }}</h1>
+  <section id="messages">
+    {{ #post }}
+    <div class="messagebox">
+      <p id="name"> {{ username }}: </p>
+      <p id="body"> {{ body }} </p>
+      <input type="submit" value="Like" class="like">
+
+      <p id="time"> {{ createdAt }} </p>
+    </div>
+    {{ /post }}
+  </section>
+
+  <section id="form">
+    <form method="post" action="/message">
+      <textarea name="body" cols="80" rows="3" placeholder="type message..." id="textArea"></textarea>
+      <input type="submit" value="Send Message" class="like" id="send">
+    </form>
+  </section>
+
+</body>
+
+</html>

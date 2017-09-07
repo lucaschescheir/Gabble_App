@@ -1,0 +1,59 @@
+h1 {
+  color: white;
+}
+body {
+  background-image: url('/gabble_background.jpg');
+}
+#messages {
+  border: 1px solid white;
+  box-shadow: 5px 5px 5px lightgrey;
+  height: 600px;
+  width: 500px;
+  overflow: scroll;
+  background: lightgrey;
+  margin-bottom: 20px;
+}
+
+.messagebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+  border-bottom: 1px solid black;
+  //margin-bottom: 20px;
+}
+
+p {
+  margin: 0px;
+  font-weight: 100;
+}
+
+#name {
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+#time {
+  align-self: flex-start;
+}
+
+.like {
+  width: 20%;
+  align-self: flex-end;
+  background-color: #0083b7;
+  color: white;
+  box-shadow: 3px 3px 3px black;
+  margin-right: 20px;
+}
+
+#body {
+  align-self: center;
+}
+
+#textArea {
+  box-shadow: 5px 5px 5px lightgrey;
+}
+
+#send {
+  width: 7%;
+}
