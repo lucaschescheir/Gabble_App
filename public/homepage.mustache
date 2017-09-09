@@ -3,7 +3,7 @@
 
 <head>
   <title></title>
-  <script src="script.js" defer>
+  <script src="/script.js" defer>
   </script>
   <link href="style.css" rel="stylesheet">
 </head>
@@ -17,8 +17,8 @@
     {{ #post }}
     <div class="messagebox" id="hello">
       <p id="name"> {{ user.firstName }}: </p>
-      <p id="body" id="form1"> {{ body }} </p>
-      <input type="submit" value="Like" class="like">
+      <p id="body"> {{ body }} </p>
+      <input type="submit" value="Like" class="like" id="liked">
       <p id="time"> {{ createdAt }} </p>
     </div>
     {{ /post }}

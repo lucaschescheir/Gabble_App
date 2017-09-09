@@ -8,13 +8,12 @@ const Sequelize = require('sequelize');
 
 const User = require('./models/user');
 const Message = require('./models/message');
-// const Like = require('./models/like');
+const Like = require('./models/like');
 
 const mustache = require('mustache-express');
 
 const bodyparser = require('body-parser');
 const session = require('express-session');
-
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
@@ -50,26 +49,11 @@ app.get('/homepage', function(req, res) {
 
       })
       .then(function(messages) {
-        // We need to wait until all promises complete before we can render
-        // our HTML (otherwise username will be missing).
-        // let promises = [];
-        //
-        // // Starts all of the database queries and adds them to the 'promises'
-        // // array.
-        // for (let i = 0; i < messages.length; i++) {
-        //   promises.push(messages[i].getUser().then(function (user) {
-        //     messages[i].user = user;
-        //   }));
-        // }
 
-        // Wait until ALL of the promises in the array have returned, THEN render
-        // the page.
-        // Promise.all(promises).then(function () {
         res.render('homepage', {
           post: messages,
-          username: req.session.username,
+          username: req.session.username
         });
-        // })
 
       });
   } else {
@@ -136,7 +120,6 @@ app.post('/signin', function(req, res) {
 app.post('/message', function(req, res) {
   Message.create({
       body: req.body.body,
-      username: req.session.username.firstName
     })
     .then(function(message) {
       return User.findById(req.session.username.id)
@@ -146,16 +129,6 @@ app.post('/message', function(req, res) {
           res.redirect('homepage');
         });
     });
-  // Message.create({
-  //     body: req.body.body,
-  //     username: req.session.username.firstName
-  //   })
-  //   .then(function(message) {
-  //     console.log(req.session.username);
-  //     message.setUser(req.session.username);
-  //
-  //     res.redirect('homepage')
-  //   });
 });
 
 //redirect to Existing user sign in
@@ -167,6 +140,16 @@ app.post('/sign-in', function(req, res) {
 app.post('/sign-up', function(req, res) {
   res.redirect('signup')
 });
-
+// Post for likes
+// app.post('/liked', function(req, res) {
+// Like.create()
+// .then(function(like){
+//   return User.findById(req.session.username.id)
+//   .then(function(who){
+//     like.SetUser(who);
+//     res.redirect('homepage')
+//   });
+// });
+// });
 app.listen(3000);
 console.log('connected!!');

@@ -8,7 +8,7 @@ const db = new Sequelize('Gabble', 'lucaschescheir', '', {
 const Message = db.define('message', {
   body: Sequelize.STRING,
   likes: Sequelize.INTEGER,
-  username: Sequelize.STRING,
+  
 });
 
 Message.belongsTo(User);

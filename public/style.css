@@ -13,9 +13,7 @@ body {
   background: lightgrey;
   margin-bottom: 20px;
 }
-input {
-  margin: 10px;
-}
+
 .messagebox {
   display: flex;
   flex-direction: column;
@@ -66,4 +64,8 @@ h4 {
 }
 h1, h3, h5 {
   color: white;
+}
+
+#liked {
+height: 100px;
 }

@@ -1,5 +1,7 @@
 console.log('hello');
-//function to scroll to bottom 
+
+button = document.getElementById('send');
+//function to scroll to bottom
 function updateScroll(){
   let element = document.getElementById('messages');
 
@@ -7,4 +9,6 @@ function updateScroll(){
 }
 //this provides kind of a choppy user experience but I couldt get it to work
 // with an event listener
-setInterval(updateScroll,1000);
+setInterval(updateScroll,50);
+
+button.addEventListener('click', updateScroll)
